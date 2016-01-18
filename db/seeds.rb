@@ -63,12 +63,3 @@ Review.create!([
     comment: "It's a bird, it's a plane, it's a blockbuster!"
   }
 ])
-
-User.create!([
-  {
-    name: "example",
-    email: "example@gmail.com",
-    password: "password",
-    password_confirmation: "password"
-  }
-])
