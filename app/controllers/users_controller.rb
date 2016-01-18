@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -28,12 +28,12 @@ class UsersController < ApplicationController
   end
 
   def update
-  if @user.update(user_params)
-    redirect_to @user, notice: "Account successfully updated!"
-  else
-    render :edit
+    if @user.update(user_params)
+      redirect_to @user, notice: "Account successfully updated!"
+    else
+      render :edit
+    end
   end
-end
 
   def destroy
     @user.destroy
@@ -41,7 +41,7 @@ end
     redirect_to root_url, alert: "Account successfully deleted!"
   end
 
-  private
+private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
