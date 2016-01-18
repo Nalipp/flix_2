@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
   root 'movies#index'
+  resource :session
+  resources :users
   resources :movies do
     resources :reviews
   end
